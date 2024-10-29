@@ -123,8 +123,7 @@ export default function App() {
         <div>
             <h1>Image Finder Unsplash</h1>
             <SearchBar onSearch={handleSearch} />
-            {isError && <ErrorMessage message={"Something went wrong!"} />}
-           
+            {isError && <ErrorMessage message={"More like internet problems!"} />}
             <ImageGallery images={imageResults} handleOpenModal={handleOpenModal} />
             {isLoading && <Loader />}
             {showLoadMore && !isLoading && <LoadMoreBtn handleMoreClick={handleMoreClick} />}

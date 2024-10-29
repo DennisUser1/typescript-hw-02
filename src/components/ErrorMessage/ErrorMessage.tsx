@@ -32,12 +32,13 @@ export default function ErrorMessage({ message }: ErrorMessageProps) {
             style={{
                 position: "fixed",
                 top: isMobile ? "auto" : "10px",
-                bottom: isMobile ? "10px" : "auto",
+                bottom: isMobile ? "90px" : "auto",
                 left: "50%",
                 transform: "translateX(-50%)",
                 background: "red",
                 color: "white",
                 padding: "10px",
+                width: "300px",
                 borderRadius: "5px",
                 zIndex: 1000,
             }}
