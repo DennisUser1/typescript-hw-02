@@ -19,11 +19,10 @@ export default function App() {
     const [showLoadMore, setShowLoadMore] = useState<boolean>(false);
     const [selectedImage, setSelectedImage] = useState<Image | null>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [totalResults, setTotalResults] = useState<number>(0);
+    // const [totalResults, setTotalResults] = useState<number>(0);
     const [isToastShown, setIsToastShown] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
 
-    
     useEffect(() => {
         if (!searchQuery) return;
 
@@ -44,10 +43,10 @@ export default function App() {
                         position: isMobile ? "bottomCenter" : "topRight",
                         timeout: 2000,
                     });
-                    setTotalResults(0); 
+                    // setTotalResults(0); 
                 } else {
                     setImageResults((prevImages) => [...prevImages, ...data.results]);
-                    setTotalResults(data.total); 
+                    // setTotalResults(typeof data.total == "number" ? data.total : 0); 
                     setShowLoadMore(currentPage < data.total_pages);
 
                     if (!isToastShown) {
@@ -125,7 +124,7 @@ export default function App() {
             <h1>Image Finder Unsplash</h1>
             <SearchBar onSearch={handleSearch} />
             {isError && <ErrorMessage message={"Something went wrong!"} />}
-            {totalResults > 0 && <p>{totalResults} images found</p>}
+           
             <ImageGallery images={imageResults} handleOpenModal={handleOpenModal} />
             {isLoading && <Loader />}
             {showLoadMore && !isLoading && <LoadMoreBtn handleMoreClick={handleMoreClick} />}

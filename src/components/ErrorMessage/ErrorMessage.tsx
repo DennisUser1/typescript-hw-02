@@ -30,8 +30,16 @@ export default function ErrorMessage({ message }: ErrorMessageProps) {
         <div
             className={styles.errorWrapper}
             style={{
+                position: "fixed",
                 top: isMobile ? "auto" : "10px",
                 bottom: isMobile ? "10px" : "auto",
+                left: "50%",
+                transform: "translateX(-50%)",
+                background: "red",
+                color: "white",
+                padding: "10px",
+                borderRadius: "5px",
+                zIndex: 1000,
             }}
         >
             <p>{message}</p>
